@@ -111,7 +111,6 @@ class AssetsManager:
 
         Parámetros
         ----------
-        object game_display: objeto de display de pygame - pygame.display.set_mode((w, h))
         int x: posición x de la imagen
         int y: posición y de la imagen
         str img: ruta a la imágen
@@ -124,7 +123,6 @@ class AssetsManager:
         Función para crear un botón
         Parámetros
         ----------
-        object game_display: objeto de display de pygame - pygame.display.set_mode((w, h))
         int x: posición x del botón
         int y: posición y del botón 
         int w: ancho del botón

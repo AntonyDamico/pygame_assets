@@ -1,5 +1,5 @@
 # pygame_assets
-Esta es una colección de métodos creada para facilitar el uso de pygame y limpiar el código. Tiene métodos para crear rectangulos, texto, botones e imágenes.
+Clase para facilitar el uso de elementos comunes de pygame y mantener código limpio, posee métodos para crear botones, texto, rectángulos, etc.
 
 ## Instalación
 Primero se debe clonar el repositorio para tener el código
@@ -13,27 +13,54 @@ Luego se debe colocar el directorio de pygame_assets en el del proyecto
 ├── proyecto
 │   ├── pygame_assets
 │   │   ├── __init.py__
-│   │   ├── assets
-│   │   ├── colors
+│   │   ├── assets.py
+│   │   ├── colors.py
 │   └── Archivos del proyecto
 ```
 
 Una vez cumplido esto se puede importar los archivos en el proyecto y usarlos libremente
 ```
-from pygame_assets import assets, colors
+from pygame_assets import colors
+from pygame_assets.assets import AssetsManager
 
-assets.draw_square(20, 20, 50, 60, color=colors.NEGRO)
+ancho_pantalla = 1000
+alto_pantalla = 500
+titulo = 'nueva ventana'
+color_fondo = colors.NEGRO
+
+assets = AssetsManager(ancho_pantalla, alto_pantalla, titulo, color_fondo)
+assets.draw_square(20, 20, 50, 60, color=colors.AZUL)
 ```
 
 ## Uso
 ### Métodos:
+* constructor
+```
+Constructor de la clase
+
+    Parámetros
+    ----------
+    int w_screen: ancho de la pantalla
+    int h_screen: alto de la pantalla
+    str title: título de la ventana de pygame | default=""
+    tupple bg_color: color del fondo de la ventana | default=colors.BLANGO
+```
+
+* background_color()
+```
+Función para cambiar el color de fondo de pantalla
+
+    Parámetros
+    ----------
+    tupple color: color del fondo de la ventana | default=colors.BLANGO
+```
+
 * draw_square()
 ```
 Imprime un rectángulo en la pantalla dada una posición y tamaño
 
     Parámetros
     ----------
-    object game_display: objeto de display de pygame - pygame.display.set_mode((w, h))
     int x: posición x del rectángulo
     int y: posición y del rectángulo
     int w: ancho del rectángulo
@@ -52,13 +79,50 @@ Imprime un texto en la pantalla dada una posición
     int y: posición y del texo
 ```
 
-* print_image()
+* draw_circle()
 ```
-    Imprime una imágen en la pantalla dada una posición
+Imprime un circulo a la pantalla
 
     Parámetros
     ----------
-    object game_display: objeto de display de pygame - pygame.display.set_mode((w, h))
+    int x: posición x del círculo
+    int y: posición y del círculo
+    int radius: radio del círculo
+    tupple color: color del círculo | default=color.NEGRO
+    int w: cantidad de relleno del círculo, dejar en 0 para que esté relleno completamente
+```
+
+* draw_line()
+```
+Imprime una línea a la pantalla
+
+    Parámetros
+    ----------
+    int initial_x: posición inicial en x
+    int initial_y: posición inicial en y
+    int final_x: posición final en x
+    int final_y: posición final en y
+    tupple color: color de la línea | default=color.NEGRO
+    int w: grosor de la línea | default=1
+```
+
+* print_text()
+```
+Imprime un texto en la pantalla dada una posición
+
+    Parámetros
+    ----------
+    str texto: Texto que se desea imprimir
+    int x: posición x del texto
+    int y: posición y del texo
+```
+
+* print_image()
+```
+Imprime una imágen en la pantalla dada una posición
+
+    Parámetros
+    ----------
     int x: posición x de la imagen
     int y: posición y de la imagen
     str img: ruta a la imágen
@@ -70,7 +134,6 @@ Función para crear un botón
 
     Parámetros
     ----------
-    object game_display: objeto de display de pygame - pygame.display.set_mode((w, h))
     int x: posición x del botón
     int y: posición y del botón 
     int w: ancho del botón

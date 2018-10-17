@@ -18,6 +18,18 @@ def text_objects(text, font, font_color=colors.NEGRO, font_size=20):
     return text_surface, text_surface.get_rect()
 
 def draw_square(game_display, x, y, w, h, color=None):
+    """
+    Imprime un rectángulo en la pantalla dada una posición y tamaño
+
+    Parámetros
+    ----------
+    object game_display: objeto de display de pygame - pygame.display.set_mode((w, h))
+    int x: posición x del rectángulo
+    int y: posición y del rectángulo
+    int w: ancho del rectángulo
+    int h: alto del rectángulo
+    tupple color: color del rectángulo | default=None
+    """
     s = pygame.Surface((w, h))
     s.fill(color)
     game_display.blit(s, (x, y))
@@ -36,7 +48,7 @@ def print_text(game_display, text, x, y, font_size=25, font_color=colors.NEGRO):
     custom_text = font.render(text, True, font_color)
     game_display.blit(custom_text, (x, y))
 
-def imprimir_imagen(gameDisplay, x, y, img):
+def print_image(gameDisplay, x, y, img):
     """
     Imprime una imágen en la pantalla dada una posición
 
@@ -50,7 +62,7 @@ def imprimir_imagen(gameDisplay, x, y, img):
     img = pygame.image.load(img)
     gameDisplay.blit(img, (x, y))
 
-def boton(game_display, x, y, w, h, inactive_color, active_color,  text='', text_color=colors.NEGRO, font='freesansbold.ttf', font_size=20, action=None, parameters=[]):
+def button(game_display, x, y, w, h, inactive_color, active_color,  text='', text_color=colors.NEGRO, font='freesansbold.ttf', font_size=20, action=None, parameters=[]):
     """
     Función para crear un botón
     Parámetros

@@ -5,8 +5,13 @@ from . import colors
 
 class AssetsManager:
 
-    def __init__(self, w_screen, h_screen, title=""):
+    def __init__(self, w_screen, h_screen, title="", bg_color=colors.BLANCO):
         self.game_display = pygame.display.set_mode((w_screen, h_screen))
+        pygame.display.set_caption(title)
+        self.game_display.fill(bg_color)
+
+    def background_color(self, color=colors.BLANCO):
+        self.game_display.fill(color)
 
     def text_objects(self, text, font, font_color=colors.NEGRO, font_size=20):
         """

@@ -59,6 +59,11 @@ class AssetsManager:
         """
         pygame.draw.circle(self.game_display, color, (x,y), radius, w)
 
+    def draw_line(self, initial_x, initial_y, final_x, final_y, color=colors.NEGRO, w=1):
+        initial_point = (initial_x, initial_y)
+        final_point = (final_x, final_y)
+        pygame.draw.line(self.game_display, color, initial_point, final_point, w)
+
     def print_text(self, text, x, y, font_size=25, font_color=colors.NEGRO):
         """
         Imprime un texto en la pantalla dada una posición

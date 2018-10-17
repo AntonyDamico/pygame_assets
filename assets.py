@@ -3,15 +3,18 @@
 import pygame
 from . import colors
 
-def text_objects(text, font, text_color=colors.NEGRO, font_size=20):
+def text_objects(text, font, font_color=colors.NEGRO, font_size=20):
     """
     Función para crear ojetos de texto en pygame
     Parámetros
     ----------
     str text: texto que se le va a poner al objeto
+    str font: fuente para el texto
+    tupple font_color: color para el texto | default=colors.Negro (0,0,0)
+    font_size: tamaño de la fuente | default=20
     """
     custom_text = pygame.font.Font(font, font_size)
-    text_surface = custom_text.render(text, True, text_color)
+    text_surface = custom_text.render(text, True, font_color)
     return text_surface, text_surface.get_rect()
 
 def draw_square(game_display, x, y, w, h, color=None):
@@ -32,6 +35,20 @@ def print_text(game_display, text, x, y, font_size=25, font_color=colors.NEGRO):
     font = pygame.font.SysFont(None, font_size)
     custom_text = font.render(text, True, font_color)
     game_display.blit(custom_text, (x, y))
+
+def imprimir_imagen(gameDisplay, x, y, img):
+    """
+    Imprime una imágen en la pantalla dada una posición
+
+    Parámetros
+    ----------
+    object game_display: objeto de display de pygame - pygame.display.set_mode((w, h))
+    int x: posición x de la imagen
+    int y: posición y de la imagen
+    str img: ruta a la imágen
+    """
+    img = pygame.image.load(img)
+    gameDisplay.blit(img, (x, y))
 
 def boton(game_display, x, y, w, h, inactive_color, active_color,  text='', text_color=colors.NEGRO, font='freesansbold.ttf', font_size=20, action=None, parameters=[]):
     """
@@ -71,11 +88,7 @@ def boton(game_display, x, y, w, h, inactive_color, active_color,  text='', text
         pygame.draw.rect(game_display, inactive_color, (x, y, w, h))
 
     # Fuente y tamano del texto del botón
-    # button_text = pygame.font.Font('freesansbold.ttf', font_size)
-    # text_surface, text_rectangle = text_objects(text, button_text, text_color)
-    
-    text_surface, text_rectangle = text_objects(text, font, text_color=text_color, font_size=font_size)
-    
+    text_surface, text_rectangle = text_objects(text, font, font_color=text_color, font_size=font_size)
     # Posicionando el botón
     text_rectangle.center = ((x+(w/2)), (y+(h/2)))
     # Poniendo el botón en pantalla

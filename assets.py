@@ -17,7 +17,7 @@ def text_objects(text, font, font_color=colors.NEGRO, font_size=20):
     text_surface = custom_text.render(text, True, font_color)
     return text_surface, text_surface.get_rect()
 
-def draw_square(game_display, x, y, w, h, color=None):
+def draw_square(game_display, x, y, w, h, color=colors.NEGRO):
     """
     Imprime un rectángulo en la pantalla dada una posición y tamaño
 
@@ -28,11 +28,26 @@ def draw_square(game_display, x, y, w, h, color=None):
     int y: posición y del rectángulo
     int w: ancho del rectángulo
     int h: alto del rectángulo
-    tupple color: color del rectángulo | default=None
+    tupple color: color del rectángulo | default=color.NEGRO
     """
     s = pygame.Surface((w, h))
     s.fill(color)
     game_display.blit(s, (x, y))
+
+def draw_circle(game_display, x, y, radius, color=colors.NEGRO, w=0):
+    """
+    Imprime un circulo a la pantalla
+
+    Parámetros
+    ----------
+    object game_display: objeto de display de pygame - pygame.display.set_mode((w, h))
+    int x: posición x del círculo
+    int y: posición y del círculo
+    int radius: radio del círculo
+    tupple color: color del círculo | default=color.NEGRO
+    int w: cantidad de relleno del círculo, dejar en 0 para que esté relleno completamente
+    """
+    pygame.draw.circle(game_display, color, (x,y), radius, w)
 
 def print_text(game_display, text, x, y, font_size=25, font_color=colors.NEGRO):
     """

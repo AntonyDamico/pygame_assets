@@ -6,6 +6,9 @@ from . import colors
 def text_objects(text, font, text_color=colors.NEGRO):
     """
     Función para crear ojetos de texto en pygame
+    Parámetros
+    ----------
+    str text: texto que se le va a poner al objeto
     """
     text_surface = font.render(text, True, text_color)
     return text_surface, text_surface.get_rect()
@@ -15,7 +18,21 @@ def draw_square(game_display, x, y, w, h, color=None):
     s.fill(color)
     game_display.blit(s, (x, y))
 
-def boton(game_display, x, y, w, h, inactive_color, active_color,  text='', text_color=colors.NEGRO, font_size=20, action=None, parameters=[]):
+def print_text(game_display, text, x, y, font_size=25, font_color=colors.NEGRO):
+    """
+    Imprime un texto en la pantalla dada una posición
+
+    Parámetros
+    ----------
+    str texto: Texto que se desea imprimir
+    int x: posición x del texto
+    int y: posición y del texo
+    """
+    font = pygame.font.SysFont(None, font_size)
+    texto = font.render(text, True, font_color)
+    game_display.blit(text, (x, y))
+
+def boton(game_display, x, y, w, h, inactive_color, active_color,  text='', text_color=colors.NEGRO, font='freesansbold.ttf', font_size=20, action=None, parameters=[]):
     """
     Función para crear un botón
     Parámetros

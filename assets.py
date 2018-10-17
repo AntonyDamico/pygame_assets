@@ -3,14 +3,15 @@
 import pygame
 from . import colors
 
-def text_objects(text, font, text_color=colors.NEGRO):
+def text_objects(text, font, text_color=colors.NEGRO, font_size=20):
     """
     Función para crear ojetos de texto en pygame
     Parámetros
     ----------
     str text: texto que se le va a poner al objeto
     """
-    text_surface = font.render(text, True, text_color)
+    custom_text = pygame.font.Font(font, font_size)
+    text_surface = custom_text.render(text, True, text_color)
     return text_surface, text_surface.get_rect()
 
 def draw_square(game_display, x, y, w, h, color=None):
@@ -29,8 +30,8 @@ def print_text(game_display, text, x, y, font_size=25, font_color=colors.NEGRO):
     int y: posición y del texo
     """
     font = pygame.font.SysFont(None, font_size)
-    texto = font.render(text, True, font_color)
-    game_display.blit(text, (x, y))
+    custom_text = font.render(text, True, font_color)
+    game_display.blit(custom_text, (x, y))
 
 def boton(game_display, x, y, w, h, inactive_color, active_color,  text='', text_color=colors.NEGRO, font='freesansbold.ttf', font_size=20, action=None, parameters=[]):
     """
@@ -70,8 +71,11 @@ def boton(game_display, x, y, w, h, inactive_color, active_color,  text='', text
         pygame.draw.rect(game_display, inactive_color, (x, y, w, h))
 
     # Fuente y tamano del texto del botón
-    button_text = pygame.font.Font('freesansbold.ttf', font_size)
-    text_surface, text_rectangle = text_objects(text, button_text, text_color)
+    # button_text = pygame.font.Font('freesansbold.ttf', font_size)
+    # text_surface, text_rectangle = text_objects(text, button_text, text_color)
+    
+    text_surface, text_rectangle = text_objects(text, font, text_color=text_color, font_size=font_size)
+    
     # Posicionando el botón
     text_rectangle.center = ((x+(w/2)), (y+(h/2)))
     # Poniendo el botón en pantalla

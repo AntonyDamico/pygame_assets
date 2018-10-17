@@ -6,11 +6,28 @@ from . import colors
 class AssetsManager:
 
     def __init__(self, w_screen, h_screen, title="", bg_color=colors.BLANCO):
+        """
+        Constructor de la clase
+
+        Parámetros
+        ----------
+        int w_screen: ancho de la pantalla
+        int h_screen: alto de la pantalla
+        str title: título de la ventana de pygame | default=""
+        tupple bg_color: color del fondo de la ventana | default=colors.BLANGO
+        """
         self.game_display = pygame.display.set_mode((w_screen, h_screen))
         pygame.display.set_caption(title)
         self.game_display.fill(bg_color)
 
     def background_color(self, color=colors.BLANCO):
+        """
+        Función para cambiar el color de fondo de pantalla
+
+        Parámetros
+        ----------
+        tupple color: color del fondo de la ventana | default=colors.BLANGO
+        """
         self.game_display.fill(color)
 
     def text_objects(self, text, font, font_color=colors.NEGRO, font_size=20):
@@ -33,7 +50,6 @@ class AssetsManager:
 
         Parámetros
         ----------
-        object game_display: objeto de display de pygame - pygame.display.set_mode((w, h))
         int x: posición x del rectángulo
         int y: posición y del rectángulo
         int w: ancho del rectángulo
@@ -50,7 +66,6 @@ class AssetsManager:
 
         Parámetros
         ----------
-        object game_display: objeto de display de pygame - pygame.display.set_mode((w, h))
         int x: posición x del círculo
         int y: posición y del círculo
         int radius: radio del círculo
@@ -60,6 +75,18 @@ class AssetsManager:
         pygame.draw.circle(self.game_display, color, (x,y), radius, w)
 
     def draw_line(self, initial_x, initial_y, final_x, final_y, color=colors.NEGRO, w=1):
+        """
+        Imprime una línea a la pantalla
+
+        Parámetros
+        ----------
+        int initial_x: posición inicial en x
+        int initial_y: posición inicial en y
+        int final_x: posición final en x
+        int final_y: posición final en y
+        tupple color: color de la línea | default=color.NEGRO
+        int w: grosor de la línea | default=1
+        """
         initial_point = (initial_x, initial_y)
         final_point = (final_x, final_y)
         pygame.draw.line(self.game_display, color, initial_point, final_point, w)

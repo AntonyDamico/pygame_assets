@@ -21,7 +21,7 @@ Luego se debe colocar el directorio de pygame_assets en el del proyecto
 Una vez cumplido esto se puede importar los archivos en el proyecto y usarlos libremente
 ```
 from pygame_assets import colors
-from pygame_assets.assets import AssetsManager
+from pygame_assets.AssetsManager import AssetsManager
 
 ancho_pantalla = 1000
 alto_pantalla = 500

@@ -1,6 +1,11 @@
 # pygame_assets
 Clase para facilitar el uso de elementos comunes de pygame y mantener código limpio, posee métodos para crear botones, texto, rectángulos, etc.
 
+### Requisitos
+* [python 3](https://www.python.org/) 
+* [pygame](https://www.pygame.org/) - pip install pygame
+* opcional [git](https://git-scm.com) - para trabajar con el repositorio 
+
 ## Instalación
 Primero se debe clonar el repositorio para tener el código, teniendo instalado git, ingresa en el command line o cmd
 ```

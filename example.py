@@ -28,8 +28,6 @@ def game_loop():
         assets.print_text('Ejemplo', ancho_pantalla*0.40, alto_pantalla*0.20, font_size=50, font_color=colors.BLANCO)
         assets.print_text('Presionar botón para mostrar cuadrado', ancho_pantalla*0.30, alto_pantalla*0.30, font_size=30, font_color=colors.BLANCO)
 
-        # assets.button(250, 250, 100, 100, colors.GRIS, colors.AZUL, text='pulsar', action=mostrar_cuadrado, *[300, 500])
-
         assets.button(250, 250, 100, 100, colors.GRIS, colors.AZUL, text='presionar', action=mostrar_cuadrado, args=[200, 400])
 
         pygame.display.update()

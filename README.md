@@ -7,11 +7,11 @@ Primero se debe clonar el repositorio para tener el código
 git clone https://github.com/AntonyDamico/pygame_assets
 ```
 
-Luego se debe colocar el directorio de pygame_assets en el del proyecto
+Luego se debe colocar el directorio de assets en el del proyecto
 
 ```bash
 ├── proyecto
-│   ├── pygame_assets
+│   ├── assets
 │   │   ├── __init.py__
 │   │   ├── assets.py
 │   │   ├── colors.py
@@ -20,8 +20,8 @@ Luego se debe colocar el directorio de pygame_assets en el del proyecto
 
 Una vez cumplido esto se puede importar los archivos en el proyecto y usarlos libremente
 ```
-from pygame_assets import colors
-from pygame_assets.AssetsManager import AssetsManager
+from assets import colors
+from assets.AssetsManager import AssetsManager
 
 ancho_pantalla = 1000
 alto_pantalla = 500

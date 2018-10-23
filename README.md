@@ -2,7 +2,7 @@
 Clase para facilitar el uso de elementos comunes de pygame y mantener código limpio, posee métodos para crear botones, texto, rectángulos, etc.
 
 ## Instalación
-Primero se debe clonar el repositorio para tener el código
+Primero se debe clonar el repositorio para tener el código, teniendo instalado git, ingresa en el command line o cmd
 ```
 git clone https://github.com/AntonyDamico/pygame_assets
 ```
@@ -30,6 +30,14 @@ color_fondo = colors.NEGRO
 
 assets = AssetsManager(ancho_pantalla, alto_pantalla, titulo, color_fondo)
 assets.draw_square(20, 20, 50, 60, color=colors.AZUL)
+```
+
+### Ejemplo:
+El ejemplo en el archivo example.py muestra como puede ser usada la libreria, ahí se utilizan
+los métodos para imprimir texto, botones y cuadrados, además, cómo se deben manejar las funciones de los botones.
+Para ejecutar el ejemplo simplemente puedes usar python en el command line al clonar el repositorio
+```
+python example.py
 ```
 
 ## Uso

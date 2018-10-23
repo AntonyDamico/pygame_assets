@@ -118,7 +118,7 @@ class AssetsManager:
         img = pygame.image.load(img)
         self.gameDisplay.blit(img, (x, y))
 
-    def button(self, x, y, w, h, inactive_color, active_color,  text='', text_color=colors.NEGRO, font='freesansbold.ttf', font_size=20, action=None, parameters=[]):
+    def button(self, x, y, w, h, inactive_color, active_color,  text='', text_color=colors.NEGRO, font='freesansbold.ttf', font_size=20, action=None, args=[]):
         """
         Función para crear un botón
         Parámetros
@@ -146,10 +146,10 @@ class AssetsManager:
             pygame.draw.rect(self.game_display, active_color, (x, y, w, h))
             # Comprueba si el botón fue presionado y posee alguna acción
             if click[0] == 1 and action != None:
-                if parameters:
-                    action(parameters[0])
-                else:
-                    action()
+                # if parameters:
+                action(*args)
+                # else:
+                #     action()
         else:
             # Dibuja el botón con su color inactivo
             pygame.draw.rect(self.game_display, inactive_color, (x, y, w, h))
